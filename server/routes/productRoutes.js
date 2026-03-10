@@ -1,38 +1,70 @@
-const express = require('express');
+const express = require('require');
 const router = express.Router();
 const Product = require('../models/Product');
 
-// Get all products
+// @route   GET /api/products
+// @desc    Get all products
+// @access  Public
 router.get('/', async (req, res) => {
     try {
-        const { category } = req.query;
-        const query = category ? { category } : {};
-        const products = await Product.find(query);
+        const products = await Product.find().sort({ createdAt: -1 });
         res.json(products);
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        console.error(err.message);
+        res.status(500).send('Server Error');
     }
 });
 
-// Get a single product
-router.get('/:id', async (req, res) => {
+// @route   POST /api/products
+// @desc    Create a product
+// @access  Admin (TODO: add auth middleware)
+router.post('/', async (req, res) => {
     try {
-        const product = await Product.findById(req.params.id);
-        if (!product) return res.status(404).json({ message: 'Product not found' });
+        const newProduct = new Product(req.body);
+        const product = await newProduct.save();
         res.json(product);
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        console.error(err.message);
+        res.status(500).send('Server Error');
     }
 });
 
-// Add a product (for demo/admin purposes)
-router.post('/', async (req, res) => {
-    const product = new Product(req.body);
+// @route   PUT /api/products/:id
+// @desc    Update a product
+// @access  Admin 
+router.put('/:id', async (req, res) => {
     try {
-        const newProduct = await product.save();
-        res.status(201).json(newProduct);
+        let product = await Product.findById(req.params.id);
+        if (!product) return res.status(404).json({ msg: 'Product not found' });
+
+        product = await Product.findByIdAndUpdate(
+            req.params.id,
+            { $set: req.body },
+            { new: true }
+        );
+        res.json(product);
     } catch (err) {
-        res.status(400).json({ message: err.message });
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+// @route   DELETE /api/products/:id
+// @desc    Delete a product
+// @access  Admin
+router.delete('/:id', async (req, res) => {
+    try {
+        const product = await Product.findById(req.params.id);
+        if (!product) return res.status(404).json({ msg: 'Product not found' });
+
+        await product.deleteOne();
+        res.json({ msg: 'Product removed' });
+    } catch (err) {
+        console.error(err.message);
+        if (err.kind === 'ObjectId') {
+            return res.status(404).json({ msg: 'Product not found' });
+        }
+        res.status(500).send('Server Error');
     }
 });
 

@@ -1,17 +1,33 @@
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
-    name: { type: String, required: true },
+    title: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: false // Optional, some equipment might need quotes
+    },
     category: {
         type: String,
         required: true,
-        enum: ['Laboratory Chemicals', 'Medical Chemicals', 'Laboratory Equipment', 'Medical Equipment']
+        enum: ['Laboratory Equipment', 'Medical Equipment', 'Chemicals & Reagents', 'Consumables']
     },
-    description: { type: String, required: true },
-    specifications: [{ type: String }],
-    imageUrl: { type: String },
-    inStock: { type: Boolean, default: true },
-    createdAt: { type: Date, default: Date.now }
+    imageUrl: {
+        type: String,
+        required: false
+    },
+    features: [{
+        type: String
+    }]
+}, {
+    timestamps: true
 });
 
 module.exports = mongoose.model('Product', productSchema);
