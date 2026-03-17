@@ -1,10 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ShoppingBag, Shield } from 'lucide-react';
-import Logo from './Logo';
+import { Menu, X, ShoppingBag } from 'lucide-react';
 
 const navLinks = [
     { name: 'Home', href: '/' },
@@ -15,90 +14,106 @@ const navLinks = [
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
-        <nav className="sticky top-0 z-50 bg-[#0056b3] shadow-md">
-            <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                    <span className="text-white font-bold text-2xl font-sans tracking-tight">
-                        FOLUXE
-                    </span>
-                </div>
-
-                {/* Desktop Links */}
-                <div className="hidden lg:flex items-center gap-8">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            href={link.href}
-                            className={`text-sm font-medium transition-colors hover:text-blue-200 ${pathname === link.href ? 'text-white' : 'text-blue-100'}`}
-                        >
-                            {link.name}
-                        </Link>
-                    ))}
-
-                    <div className="w-px h-6 bg-blue-400 mx-2"></div>
-
-                    <Link
-                        href="/admin"
-                        className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-100 hover:text-white transition-colors"
-                    >
-                        <Shield className="w-4 h-4" />
-                        Admin
-                    </Link>
-
-                    <Link
-                        href="/products"
-                        className="flex items-center gap-2 px-6 py-2.5 bg-white text-[#0056b3] text-sm font-bold rounded-md hover:bg-gray-100 transition-colors shadow-sm"
-                    >
-                        <ShoppingBag className="w-4 h-4" />
-                        Shop Now
+        <nav 
+            className={`sticky top-0 z-50 transition-all duration-300 ${
+                scrolled 
+                    ? 'bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100' 
+                    : 'bg-white border-b border-transparent'
+            }`}
+        >
+            <div className={`container mx-auto px-6 md:px-12 max-w-7xl flex flex-wrap items-center justify-between transition-all duration-300 ${scrolled ? 'h-16' : 'h-24'}`}>
+                
+                {/* Logo Section */}
+                <div className="flex items-center gap-2 z-50">
+                    <Link href="/" className="text-gray-900 font-extrabold text-2xl tracking-tighter uppercase relative group">
+                        Foluxe
+                        <span className="absolute -bottom-1 left-0 w-1/2 h-[3px] bg-gray-900 group-hover:w-full transition-all duration-300"></span>
                     </Link>
                 </div>
 
-                {/* Mobile Toggle */}
+                {/* Mobile Toggle Button */}
                 <button
-                    className="lg:hidden text-white"
+                    className="lg:hidden text-gray-900 hover:text-gray-600 transition-colors focus:outline-none z-50"
                     onClick={() => setIsOpen(!isOpen)}
+                    aria-label="Toggle menu"
                 >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
-            </div>
 
-            {/* Mobile Menu */}
-            {isOpen && (
-                <div className="lg:hidden absolute top-full left-0 right-0 bg-[#0056b3] border-t border-blue-400 shadow-xl">
-                    <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+                {/* Desktop Links */}
+                <div className="hidden lg:flex items-center gap-10">
+                    <div className="flex gap-8">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className={`text-lg font-medium transition-colors ${pathname === link.href ? 'text-white' : 'text-blue-100'}`}
-                                onClick={() => setIsOpen(false)}
+                                className={`text-sm font-medium transition-colors relative group py-2 ${
+                                    pathname === link.href ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'
+                                }`}
                             >
                                 {link.name}
+                                <span 
+                                    className={`absolute bottom-0 left-0 h-[2px] bg-gray-900 transition-all duration-300 ${
+                                        pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
+                                    }`}
+                                ></span>
                             </Link>
                         ))}
-                        <div className="h-px bg-blue-400 my-2"></div>
-                        <Link
-                            href="/admin"
-                            className="flex items-center gap-2 text-lg font-medium text-blue-100"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            <Shield className="w-5 h-5" />
-                            Admin Dashboard
-                        </Link>
+                    </div>
+
+                    <div className="flex items-center pl-6 border-l border-gray-200 h-8">
                         <Link
                             href="/products"
-                            className="mt-4 flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#0056b3] text-center font-bold rounded-md shadow-sm"
-                            onClick={() => setIsOpen(false)}
+                            className="flex items-center gap-2 px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-full hover:bg-black transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                         >
-                            <ShoppingBag className="w-5 h-5" />
+                            <ShoppingBag className="w-4 h-4" />
                             Shop Now
                         </Link>
                     </div>
                 </div>
-            )}
+            </div>
+
+            {/* Mobile Menu */}
+            <div 
+                className={`lg:hidden absolute top-full left-0 right-0 w-full bg-white/95 backdrop-blur-lg border-b border-gray-100 shadow-xl transition-all duration-300 ease-in-out origin-top ${
+                    isOpen ? 'opacity-100 scale-y-100 pointer-events-auto' : 'opacity-0 scale-y-0 pointer-events-none'
+                }`}
+            >
+                <div className="container mx-auto px-6 py-6 flex flex-col gap-6">
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.name}
+                            href={link.href}
+                            className={`text-xl font-medium transition-colors ${
+                                pathname === link.href ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'
+                            }`}
+                            onClick={() => setIsOpen(false)}
+                        >
+                            {link.name}
+                        </Link>
+                    ))}
+                    <div className="w-full h-px bg-gray-100 my-2"></div>
+                    <Link
+                        href="/products"
+                        className="flex items-center justify-center gap-2 px-6 py-4 bg-gray-900 text-white text-center font-medium rounded-full shadow-md hover:bg-black transition-all"
+                        onClick={() => setIsOpen(false)}
+                    >
+                        <ShoppingBag className="w-5 h-5" />
+                        Shop Now
+                    </Link>
+                </div>
+            </div>
         </nav>
     );
 }
