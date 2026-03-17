@@ -48,12 +48,12 @@ export default function AdminLayout({ children }) {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-50 flex flex-col md:flex-row">
-            {/* Sidebar */}
-            <aside className="w-full md:w-64 bg-black text-white flex flex-col shrink-0 md:min-h-screen z-20">
-                <div className="p-6 border-b border-white/5">
+        <div className="min-h-screen bg-white flex flex-col md:flex-row">
+            {/* Sidebar — Fixed on desktop */}
+            <aside className="w-full md:w-64 bg-black text-white flex flex-col shrink-0 md:h-screen md:sticky md:top-0 z-20">
+                <div className="p-6 border-b border-white/10">
                     <span className="text-white font-extrabold text-xl tracking-tighter uppercase">Foluxe</span>
-                    <span className="text-xs uppercase tracking-widest text-gray-600 font-bold block mt-1">Admin Panel</span>
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold block mt-1">Admin Panel</span>
                 </div>
 
                 <nav className="flex-1 p-4 flex flex-col gap-1 overflow-y-auto">
@@ -103,7 +103,7 @@ export default function AdminLayout({ children }) {
                 </header>
 
                 {/* Page Content */}
-                <div className="p-8 overflow-auto flex-1 bg-gray-50">
+                <div className="p-8 overflow-auto flex-1 bg-white">
                     {children}
                 </div>
             </main>
