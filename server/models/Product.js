@@ -4,30 +4,43 @@ const productSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
     },
     description: {
         type: String,
-        required: true
+        required: true,
+    },
+    priceType: {
+        type: String,
+        enum: ['fixed', 'on-request'],
+        default: 'fixed',
     },
     price: {
         type: Number,
-        required: false // Optional, some equipment might need quotes
+        required: false, // Only required if priceType === 'fixed'
     },
     category: {
         type: String,
         required: true,
-        enum: ['Laboratory Equipment', 'Medical Equipment', 'Chemicals & Reagents', 'Consumables']
+        enum: ['Laboratory Equipment', 'Medical Equipment', 'Chemicals & Reagents', 'Consumables'],
     },
-    imageUrl: {
+    brand: {
         type: String,
-        required: false
+        trim: true,
+        default: '',
     },
+    images: [{
+        type: String, // Cloudinary URLs
+    }],
     features: [{
-        type: String
-    }]
+        type: String,
+    }],
+    tags: [{
+        type: String,
+        trim: true,
+    }],
 }, {
-    timestamps: true
+    timestamps: true,
 });
 
 module.exports = mongoose.model('Product', productSchema);

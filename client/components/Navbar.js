@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ShoppingBag } from 'lucide-react';
+import Image from 'next/image';
 
 const navLinks = [
     { name: 'Home', href: '/' },
@@ -32,55 +33,65 @@ export default function Navbar() {
                     : 'bg-white border-b border-transparent'
             }`}
         >
-            <div className={`container mx-auto px-6 md:px-12 max-w-7xl flex flex-wrap items-center justify-between transition-all duration-300 ${scrolled ? 'h-16' : 'h-24'}`}>
-                
-                {/* Logo Section */}
-                <div className="flex items-center gap-2 z-50">
-                    <Link href="/" className="text-gray-900 font-extrabold text-2xl tracking-tighter uppercase relative group">
-                        Foluxe
-                        <span className="absolute -bottom-1 left-0 w-1/2 h-[3px] bg-gray-900 group-hover:w-full transition-all duration-300"></span>
+            <div className={`container mx-auto px-6 md:px-12 max-w-7xl grid grid-cols-3 items-center transition-all duration-300 ${scrolled ? 'h-16' : 'h-24'}`}>
+
+                {/* Logo — Left */}
+                <div className="flex items-center z-50">
+                    <Link href="/" className="flex items-center gap-2 group">
+                        <Image
+                            src="/foluxelogo.png"
+                            alt="Foluxe Logo"
+                            width={36}
+                            height={36}
+                            className="object-contain"
+                        />
+                        <span className="text-gray-900 font-extrabold text-2xl tracking-tighter uppercase relative">
+                            Foluxe
+                            <span className="absolute -bottom-1 left-0 w-1/2 h-[3px] bg-gray-900 group-hover:w-full transition-all duration-300"></span>
+                        </span>
                     </Link>
                 </div>
 
-                {/* Mobile Toggle Button */}
-                <button
-                    className="lg:hidden text-gray-900 hover:text-gray-600 transition-colors focus:outline-none z-50"
-                    onClick={() => setIsOpen(!isOpen)}
-                    aria-label="Toggle menu"
-                >
-                    {isOpen ? <X size={28} /> : <Menu size={28} />}
-                </button>
-
-                {/* Desktop Links */}
-                <div className="hidden lg:flex items-center gap-10">
-                    <div className="flex gap-8">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                className={`text-sm font-medium transition-colors relative group py-2 ${
-                                    pathname === link.href ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'
-                                }`}
-                            >
-                                {link.name}
-                                <span 
-                                    className={`absolute bottom-0 left-0 h-[2px] bg-gray-900 transition-all duration-300 ${
-                                        pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
-                                    }`}
-                                ></span>
-                            </Link>
-                        ))}
-                    </div>
-
-                    <div className="flex items-center pl-6 border-l border-gray-200 h-8">
+                {/* Nav Links — Center */}
+                <div className="hidden lg:flex items-center justify-center gap-8">
+                    {navLinks.map((link) => (
                         <Link
-                            href="/products"
-                            className="flex items-center gap-2 px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-full hover:bg-black transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                            key={link.name}
+                            href={link.href}
+                            className={`text-sm font-medium transition-colors relative group py-2 ${
+                                pathname === link.href ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'
+                            }`}
                         >
-                            <ShoppingBag className="w-4 h-4" />
-                            Shop Now
+                            {link.name}
+                            <span
+                                className={`absolute bottom-0 left-0 h-[2px] bg-gray-900 transition-all duration-300 ${
+                                    pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
+                                }`}
+                            ></span>
                         </Link>
-                    </div>
+                    ))}
+                </div>
+
+                {/* CTA Button — Right */}
+                <div className="hidden lg:flex items-center justify-end">
+                    <Link
+                        href="/products"
+                        className="flex items-center gap-2 px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-full hover:bg-black transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                    >
+                        <ShoppingBag className="w-4 h-4" />
+                        Shop Now
+                    </Link>
+                </div>
+
+                {/* Mobile Toggle — spans right slot on mobile */}
+                <div className="flex lg:hidden justify-end col-start-3 z-50">
+                    <button
+                        className="text-gray-900 hover:text-gray-600 transition-colors focus:outline-none"
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        {isOpen ? <X size={28} /> : <Menu size={28} />}
+                    </button>
                 </div>
             </div>
 
