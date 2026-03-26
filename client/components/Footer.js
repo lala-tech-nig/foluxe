@@ -19,7 +19,7 @@ export default function Footer() {
                                 className="object-contain"
                             />
                             <span className="text-white font-extrabold text-xl tracking-tighter uppercase">
-                                Foluxe
+                                Foluxe Global
                             </span>
                         </Link>
                         <p className="text-sm leading-relaxed text-gray-400 mt-2">
@@ -34,7 +34,6 @@ export default function Footer() {
                             <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
                             <li><Link href="/products" className="hover:text-white transition-colors">Our Shop</Link></li>
                             <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-                            <li><Link href="/admin" className="hover:text-white transition-colors">Admin Area</Link></li>
                         </ul>
                     </div>
 

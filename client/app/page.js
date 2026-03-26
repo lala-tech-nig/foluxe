@@ -6,33 +6,6 @@ import { ArrowRight, Microscope, ShieldCheck, Truck, Clock } from 'lucide-react'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
-const slides = [
-  {
-    id: 1,
-    title: "Premium Medical & Laboratory Solutions",
-    subtitle: "Procurement, Supply, and Maintenance of High-Quality Scientific Equipment",
-    image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=1600",
-    cta: "Shop Now",
-    href: "/products"
-  },
-  {
-    id: 2,
-    title: "Expert Equipment Servicing & Repair",
-    subtitle: "Ensuring your laboratory machines operate at peak precision, 24/7.",
-    image: "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&q=80&w=1600",
-    cta: "Contact Us",
-    href: "/about"
-  },
-  {
-    id: 3,
-    title: "Analytical Grade Chemicals & Reagents",
-    subtitle: "High-purity supplies for accurate diagnostic and research outcomes.",
-    image: "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&q=80&w=1600",
-    cta: "Browse Chemicals",
-    href: "/products?category=Chemicals+%26+Reagents"
-  }
-];
-
 const features = [
   { icon: ShieldCheck, title: "Quality Assurance", desc: "ISO certified procurement" },
   { icon: Truck, title: "Nationwide Delivery", desc: "Fast & secure shipping across Nigeria" },
@@ -41,17 +14,8 @@ const features = [
 ];
 
 export default function Home() {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [loadingProducts, setLoadingProducts] = useState(true);
-
-  // Hero carousel auto-advance
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
 
   // Fetch latest 4 products from API
   useEffect(() => {
@@ -78,44 +42,48 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
 
-      {/* Hero Carousel */}
-      <section className="relative h-[85vh] w-full overflow-hidden bg-black">
-        {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-          >
-            <div className="absolute inset-0 bg-black/60 z-10" />
-            <img src={slide.image} alt={slide.title} className="absolute inset-0 w-full h-full object-cover object-center scale-105" />
-            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6">
-              <span className="text-white/70 uppercase tracking-[0.3em] text-sm font-semibold mb-6 block">Welcome to Foluxe</span>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 max-w-4xl leading-tight tracking-tight">
-                {slide.title}
-              </h1>
-              <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl font-light">
-                {slide.subtitle}
-              </p>
-              <Link
-                href={slide.href}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 text-sm font-bold tracking-wider uppercase rounded-full hover:bg-gray-200 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-              >
-                {slide.cta} <ArrowRight size={18} />
-              </Link>
-            </div>
-          </div>
-        ))}
+      {/* Hero Video Background */}
+      <section className="relative h-[90vh] w-full overflow-hidden bg-black">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0 opacity-60"
+        >
+          <source src="/video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
-        {/* Indicators */}
-        <div className="absolute bottom-10 left-0 right-0 z-30 flex justify-center gap-3">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide ? 'bg-white w-10' : 'bg-white/40 hover:bg-white/70'}`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
+        {/* Hero Content Overlay */}
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
+          <span className="text-white/70 uppercase tracking-[0.3em] text-[10px] md:text-xs font-bold mb-6 block animate-fade-in">
+            WELCOMETO FOLUXE GLOBAL
+          </span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-8 max-w-5xl leading-[1.1] tracking-tight drop-shadow-2xl">
+            QUALITY IN EVERY <span className="text-blue-400">DETAIL</span>
+          </h1>
+          <p className="text-base md:text-lg text-gray-100 mb-12 max-w-2xl font-medium leading-relaxed opacity-90">
+            Welcome to Foluxe, Nigeria's premier destination for high-quality medical equipment, analytical chemicals, and expert technical support.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 items-center">
+            <Link
+              href="/products"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black text-xs font-black tracking-widest uppercase rounded-full hover:bg-gray-100 transition-all shadow-2xl hover:shadow-white/20 transform hover:-translate-y-1"
+            >
+              Explore Shop <ArrowRight size={18} />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-3 px-10 py-5 border border-white/30 text-white text-xs font-black tracking-widest uppercase rounded-full hover:bg-white/10 transition-all backdrop-blur-sm"
+            >
+              Get a Quote
+            </Link>
+          </div>
         </div>
+
+        {/* Subtle Bottom Fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-20" />
       </section>
 
       {/* Features Ribbon */}

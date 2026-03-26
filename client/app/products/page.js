@@ -205,7 +205,7 @@ function ShopContent() {
                         href={specialRequestUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-3 px-6 py-3.5 bg-[#25D366] text-white font-bold text-sm rounded-full shadow-md hover:bg-[#20bd5a] transition-all hover:shadow-lg transform hover:-translate-y-0.5"
+                        className="inline-flex items-center gap-3 px-6 py-3.5 bg-[#101829] text-white font-bold text-sm rounded-full shadow-md hover:bg-[#20bd5a] transition-all hover:shadow-lg transform hover:-translate-y-0.5"
                     >
                         <MessageCircle size={18} />
                         Can't find what you need?

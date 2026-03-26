@@ -198,11 +198,8 @@ export default function ProductDetail() {
                                 className="w-full inline-flex items-center justify-center gap-3 px-10 py-4 bg-gray-900 text-white font-bold rounded-full hover:bg-black transition-all shadow-md hover:shadow-xl transform hover:-translate-y-0.5 tracking-wide text-sm"
                             >
                                 <MessageCircle size={18} />
-                                Inquire or Buy via WhatsApp
+                                Buy Now
                             </a>
-                            <p className="text-xs text-gray-400 mt-4 text-center font-light">
-                                Opens WhatsApp with a pre-filled message about this product.
-                            </p>
                         </div>
                     </div>
                 </div>

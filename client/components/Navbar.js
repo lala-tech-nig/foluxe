@@ -46,7 +46,7 @@ export default function Navbar() {
                             className="object-contain"
                         />
                         <span className="text-gray-900 font-extrabold text-2xl tracking-tighter uppercase relative">
-                            Foluxe
+                            Foluxe Global
                             <span className="absolute -bottom-1 left-0 w-1/2 h-[3px] bg-gray-900 group-hover:w-full transition-all duration-300"></span>
                         </span>
                     </Link>
