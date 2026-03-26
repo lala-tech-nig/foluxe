@@ -58,7 +58,7 @@ export default function Home() {
         {/* Hero Content Overlay */}
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
           <span className="text-white/70 uppercase tracking-[0.3em] text-[10px] md:text-xs font-bold mb-6 block animate-fade-in">
-            WELCOMETO FOLUXE GLOBAL
+            WELCOME TO FOLUXE GLOBAL
           </span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-8 max-w-5xl leading-[1.1] tracking-tight drop-shadow-2xl">
             QUALITY IN EVERY <span className="text-blue-400">DETAIL</span>
