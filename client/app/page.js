@@ -64,7 +64,7 @@ export default function Home() {
             QUALITY IN EVERY <span className="text-blue-400">DETAIL</span>
           </h1>
           <p className="text-base md:text-lg text-gray-100 mb-12 max-w-2xl font-medium leading-relaxed opacity-90">
-            Welcome to Foluxe, Nigeria's premier destination for high-quality medical equipment, analytical chemicals, and expert technical support.
+            Welcome to Foluxe, Nigeria's leading destination for high-quality medical equipment, analytical chemicals, and expert technical support.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 items-center">
             <Link
