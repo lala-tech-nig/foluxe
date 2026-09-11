@@ -3,12 +3,21 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { LayoutDashboard, Package, PlusCircle, LogOut } from 'lucide-react';
+import { LayoutDashboard, Package, PlusCircle, LogOut, ClipboardList } from 'lucide-react';
+import { fetchQuotes, getQuoteStats } from '../../lib/quotesStorage';
 
 export default function AdminLayout({ children }) {
     const pathname = usePathname();
     const router = useRouter();
     const [adminEmail, setAdminEmail] = useState('');
+    const [pendingCount, setPendingCount] = useState(0);
+
+    const updateBadge = async () => {
+        const token = localStorage.getItem('foluxe_admin_token');
+        const quotes = await fetchQuotes(token);
+        const stats = getQuoteStats(quotes);
+        setPendingCount(stats.pending);
+    };
 
     useEffect(() => {
         const token = localStorage.getItem('foluxe_admin_token');
@@ -34,6 +43,17 @@ export default function AdminLayout({ children }) {
             .catch(() => {
                 // Server offline - allow access but show no email
             });
+
+        updateBadge();
+
+        const handleQuoteEvent = () => updateBadge();
+        window.addEventListener('foluxe-quote-added', handleQuoteEvent);
+        window.addEventListener('foluxe-quotes-updated', handleQuoteEvent);
+
+        return () => {
+            window.removeEventListener('foluxe-quote-added', handleQuoteEvent);
+            window.removeEventListener('foluxe-quotes-updated', handleQuoteEvent);
+        };
     }, [router]);
 
     const handleLogout = () => {
@@ -43,6 +63,7 @@ export default function AdminLayout({ children }) {
 
     const navItems = [
         { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
+        { name: 'Quote Requests', href: '/admin/quotes', icon: ClipboardList, badge: pendingCount },
         { name: 'Products', href: '/admin/products', icon: Package },
         { name: 'Add Product', href: '/admin/products/add', icon: PlusCircle },
     ];
@@ -63,14 +84,23 @@ export default function AdminLayout({ children }) {
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-sm font-medium ${
+                                className={`flex items-center justify-between px-4 py-3 rounded-xl transition-all text-sm font-medium ${
                                     isActive
                                         ? 'bg-white text-black'
                                         : 'text-gray-400 hover:bg-white/5 hover:text-white'
                                 }`}
                             >
-                                <item.icon size={16} />
-                                {item.name}
+                                <div className="flex items-center gap-3">
+                                    <item.icon size={16} />
+                                    <span>{item.name}</span>
+                                </div>
+                                {Boolean(item.badge && item.badge > 0) && (
+                                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold ${
+                                        isActive ? 'bg-black text-white' : 'bg-blue-600 text-white'
+                                    }`}>
+                                        {item.badge}
+                                    </span>
+                                )}
                             </Link>
                         );
                     })}

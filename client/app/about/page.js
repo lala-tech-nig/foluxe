@@ -15,7 +15,7 @@ export default function AboutPage() {
                     <span className="uppercase tracking-[0.3em] text-xs font-semibold text-gray-400 mb-6 block">Our Story</span>
                     <h1 className="text-5xl lg:text-7xl font-extrabold mb-8 tracking-tighter">About Foluxe</h1>
                     <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
-                        Foluxe Integrated Services Limited is Nigeria's premier provider of top-tier medical and laboratory solutions. We bridge the gap between advanced scientific technology and the institutions that need them.
+                        Foluxe Integrated Services Limited is Nigeria's leading provider of top-tier medical and laboratory solutions. We bridge the gap between advanced scientific technology and the institutions that need them.
                     </p>
                 </div>
             </section>

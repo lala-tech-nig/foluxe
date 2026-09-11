@@ -10,6 +10,7 @@ const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Shop', href: '/products' },
     { name: 'About Us', href: '/about' },
+    { name: 'Contact / RFQ', href: '/contact' },
 ];
 
 export default function Navbar() {

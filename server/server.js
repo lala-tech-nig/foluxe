@@ -23,6 +23,7 @@ mongoose.connect(MONGODB_URI)
 // Define Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/products', require('./routes/productRoutes'));
+app.use('/api/quotes', require('./routes/quoteRoutes'));
 
 // Basic health check route
 app.get('/', (req, res) => res.send('Foluxe API is running'));

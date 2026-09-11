@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Microscope, ShieldCheck, Truck, Clock } from 'lucide-react';
+import ManufacturerMarquee from '../components/ManufacturerMarquee';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
@@ -104,6 +105,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Parallel Sliding Logos - Medical Machine & Materials Manufacturers */}
+      <ManufacturerMarquee />
 
       {/* Featured Products — live from DB */}
       <section className="py-24 bg-gray-50">
