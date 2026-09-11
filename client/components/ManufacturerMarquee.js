@@ -1,356 +1,267 @@
 'use client';
 
 import React from 'react';
-import { ShieldCheck, CheckCircle2, Award, Cpu, Sparkles, Activity } from 'lucide-react';
 
-const trackOneEquipment = [
+// Authentic, transparent SVG brand logos for premier medical and laboratory manufacturers
+const trackOneLogos = [
   {
     name: "Siemens Healthineers",
-    origin: "Germany",
-    category: "Diagnostic Imaging & CT/MRI",
-    highlight: "ISO 13485 Certified",
-    tag: "Medical Machinery",
-    icon: (
-      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="9" />
-        <path d="M12 3v18" />
-        <path d="M3 12h18" />
-        <circle cx="12" cy="12" r="4" fill="currentColor" fillOpacity="0.15" />
+    logo: (
+      <svg className="h-8 md:h-10 w-auto" viewBox="0 0 220 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(4, 4)">
+          <circle cx="16" cy="16" r="15" stroke="#EB780A" strokeWidth="2" fill="none" />
+          <circle cx="16" cy="16" r="3.5" fill="#EB780A" />
+          <circle cx="16" cy="7" r="2.2" fill="#EB780A" />
+          <circle cx="16" cy="25" r="2.2" fill="#EB780A" />
+          <circle cx="7" cy="16" r="2.2" fill="#EB780A" />
+          <circle cx="25" cy="16" r="2.2" fill="#EB780A" />
+          <circle cx="9.5" cy="9.5" r="1.8" fill="#EB780A" />
+          <circle cx="22.5" cy="22.5" r="1.8" fill="#EB780A" />
+          <circle cx="9.5" cy="22.5" r="1.8" fill="#EB780A" />
+          <circle cx="22.5" cy="9.5" r="1.8" fill="#EB780A" />
+        </g>
+        <text x="44" y="21" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="800" fontSize="15" fill="#00646E" letterSpacing="0.05em">SIEMENS</text>
+        <text x="44" y="33" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="600" fontSize="10.5" fill="#EB780A" letterSpacing="0.04em">Healthineers</text>
       </svg>
-    ),
+    )
   },
   {
     name: "GE Healthcare",
-    origin: "United States",
-    category: "Ultrasound & Patient Monitoring",
-    highlight: "OEM Direct Partner",
-    tag: "Medical Machinery",
-    icon: (
-      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+    logo: (
+      <svg className="h-8 md:h-10 w-auto" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(2, 4)">
+          <circle cx="16" cy="16" r="15" fill="#005A9C" />
+          <path d="M10 16c0-3.5 2.5-6 6-6 2.5 0 4.2 1.2 5 2.8l-2.2 1.2c-.6-1-1.6-1.6-2.8-1.6-2 0-3.5 1.5-3.5 3.6s1.5 3.6 3.5 3.6c1.2 0 2.2-.6 2.8-1.6h-3.2v-2.2h5.8V21c-1.2 1.8-3.2 2.6-5.4 2.6-3.8 0-6-2.5-6-7.6z" fill="#FFFFFF" />
+          <path d="M18 10h4v2h-4zM18 15h3.5v2H18zM18 20h4v2h-4z" fill="#FFFFFF" opacity="0.9" />
+        </g>
+        <text x="40" y="22" fontFamily="Georgia, serif" fontWeight="700" fontSize="16" fill="#005A9C" letterSpacing="0.02em">GE Healthcare</text>
+        <text x="40" y="32" fontFamily="system-ui, sans-serif" fontWeight="500" fontSize="8" fill="#64748B" letterSpacing="0.1em">PRECISION CARE</text>
       </svg>
-    ),
+    )
   },
   {
     name: "Philips Healthcare",
-    origin: "Netherlands",
-    category: "Critical Care & Resuscitation",
-    highlight: "Hospital Grade",
-    tag: "Clinical Systems",
-    icon: (
-      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M8 12a4 4 0 0 1 8 0M8 12a8 8 0 0 1 8 0" />
-        <line x1="12" y1="2" x2="12" y2="22" />
+    logo: (
+      <svg className="h-8 md:h-10 w-auto" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(2, 4)">
+          <path d="M16 2c8 0 14 3 14 8v10c0 8-14 12-14 12S2 28 2 20V10c0-5 6-8 14-8z" fill="#0B5FFF" />
+          <path d="M8 12c3 2 5 2 8 0s5-2 8 0M8 16c3 2 5 2 8 0s5-2 8 0M8 20c3 2 5 2 8 0s5-2 8 0" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" />
+        </g>
+        <text x="38" y="24" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="900" fontSize="17" fill="#0B5FFF" letterSpacing="0.08em">PHILIPS</text>
+        <text x="38" y="33" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="600" fontSize="8.5" fill="#64748B" letterSpacing="0.08em">HEALTHCARE</text>
       </svg>
-    ),
+    )
   },
   {
-    name: "Mindray Medical",
-    origin: "Global",
-    category: "Anesthesia & Patient Vitals",
-    highlight: "Full Service Warranty",
-    tag: "Medical Machinery",
-    icon: (
-      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+    name: "Mindray",
+    logo: (
+      <svg className="h-8 md:h-10 w-auto" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(2, 6)">
+          <path d="M4 22V6l7 12 7-12v16" stroke="#E11D48" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          <circle cx="11" cy="5" r="3" fill="#E11D48" />
+          <circle cx="24" cy="18" r="3" fill="#E11D48" />
+        </g>
+        <text x="34" y="26" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="800" fontSize="20" fill="#0F172A" letterSpacing="-0.02em">mindray</text>
       </svg>
-    ),
+    )
   },
   {
     name: "Olympus Medical",
-    origin: "Japan",
-    category: "Surgical Endoscopy & Optics",
-    highlight: "Precision Optics",
-    tag: "Surgical Devices",
-    icon: (
-      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="3" />
-        <path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" />
+    logo: (
+      <svg className="h-8 md:h-10 w-auto" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="4" y="25" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="900" fontSize="19" fill="#0C2340" letterSpacing="0.08em">OLYMPUS</text>
+        <rect x="36" y="29" width="46" height="3" rx="1.5" fill="#FDB813" />
       </svg>
-    ),
+    )
   },
   {
     name: "Dräger Medical",
-    origin: "Germany",
-    category: "Respiratory & Intensive Care",
-    highlight: "CE Compliant",
-    tag: "Critical Care",
-    icon: (
-      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="4" width="18" height="16" rx="2" />
-        <path d="M7 8h10M7 12h6M7 16h8" />
+    logo: (
+      <svg className="h-8 md:h-10 w-auto" viewBox="0 0 135 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(2, 6)">
+          <rect x="2" y="2" width="24" height="24" rx="4" fill="#005082" />
+          <path d="M14 7v14M7 14h14" stroke="#FFFFFF" strokeWidth="3" strokeLinecap="round" />
+        </g>
+        <text x="36" y="26" fontFamily="Georgia, serif" fontWeight="700" fontSize="19" fill="#005082" letterSpacing="0.01em">Dräger</text>
       </svg>
-    ),
+    )
   },
   {
-    name: "Carl Zeiss Meditec",
-    origin: "Germany",
-    category: "Microsurgery & Diagnostic Optics",
-    highlight: "Ultra High Precision",
-    tag: "Optical Machinery",
-    icon: (
-      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="8" />
-        <path d="m10 15 4-6" />
-        <path d="M9 9h6M9 15h6" />
+    name: "Carl Zeiss",
+    logo: (
+      <svg className="h-8 md:h-10 w-auto" viewBox="0 0 125 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="5" width="30" height="30" rx="3" fill="#003D82" />
+        <path d="M9 13h14l-8 10h8v3H9l8-10H9v-3z" fill="#FFFFFF" />
+        <text x="38" y="26" fontFamily="system-ui, sans-serif" fontWeight="900" fontSize="17" fill="#003D82" letterSpacing="0.1em">ZEISS</text>
       </svg>
-    ),
+    )
   },
   {
     name: "Beckman Coulter",
-    origin: "United States",
-    category: "Biomedical Centrifugation",
-    highlight: "High-Throughput",
-    tag: "Biomedical Machines",
-    icon: (
-      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="12 2 2 7 12 12 22 7 12 2" />
-        <polyline points="2 17 12 22 22 17" />
-        <polyline points="2 12 12 17 22 12" />
+    logo: (
+      <svg className="h-8 md:h-10 w-auto" viewBox="0 0 175 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(2, 7)">
+          <polygon points="12,1 24,13 12,25 0,13" fill="#D32F2F" />
+          <polygon points="12,7 18,13 12,19 6,13" fill="#1976D2" />
+        </g>
+        <text x="32" y="20" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="12" fill="#1E293B" letterSpacing="0.08em">BECKMAN</text>
+        <text x="32" y="31" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="12" fill="#D32F2F" letterSpacing="0.08em">COULTER</text>
       </svg>
-    ),
-  },
+    )
+  }
 ];
 
-const trackTwoMaterials = [
+const trackTwoLogos = [
   {
     name: "Roche Diagnostics",
-    origin: "Switzerland",
-    category: "Clinical Reagents & Chemistry",
-    highlight: "Gold Standard Reagents",
-    tag: "Lab Materials",
-    icon: (
-      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M10 2v7.31M14 9.3V1.99M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0" />
+    logo: (
+      <svg className="h-8 md:h-10 w-auto" viewBox="0 0 135 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(4, 5)">
+          <polygon points="15,1 29,8 29,22 15,29 1,22 1,8" stroke="#0066CC" strokeWidth="2.5" fill="none" />
+          <text x="15" y="19" textAnchor="middle" fontFamily="system-ui, sans-serif" fontWeight="900" fontSize="9" fill="#0066CC">Roche</text>
+        </g>
+        <text x="40" y="22" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="16" fill="#0F172A">Roche</text>
+        <text x="40" y="32" fontFamily="system-ui, sans-serif" fontWeight="600" fontSize="7.5" fill="#64748B" letterSpacing="0.08em">DIAGNOSTICS</text>
       </svg>
-    ),
+    )
   },
   {
     name: "Thermo Fisher Scientific",
-    origin: "United States",
-    category: "Analytical Materials & Spectroscopy",
-    highlight: "ISO 9001 Procurement",
-    tag: "Scientific Materials",
-    icon: (
-      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M6 3v12a6 6 0 0 0 12 0V3" />
-        <line x1="4" y1="3" x2="20" y2="3" />
-        <line x1="6" y1="8" x2="18" y2="8" />
-        <line x1="6" y1="13" x2="18" y2="13" />
+    logo: (
+      <svg className="h-8 md:h-10 w-auto" viewBox="0 0 185 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(2, 6)">
+          <polygon points="14,1 27,24 1,24" fill="#EE3124" />
+          <polygon points="14,8 21,21 7,21" fill="#FFFFFF" />
+          <polygon points="14,12 18,19 10,19" fill="#EE3124" />
+        </g>
+        <text x="34" y="20" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="13" fill="#1E293B" letterSpacing="0.03em">Thermo Fisher</text>
+        <text x="34" y="31" fontFamily="system-ui, sans-serif" fontWeight="700" fontSize="9" fill="#EE3124" letterSpacing="0.12em">SCIENTIFIC</text>
       </svg>
-    ),
+    )
   },
   {
     name: "Shimadzu Corporation",
-    origin: "Japan",
-    category: "HPLC & Precision Chromatography",
-    highlight: "Analytical Instruments",
-    tag: "Lab Machines",
-    icon: (
-      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="7" width="20" height="14" rx="2" />
-        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+    logo: (
+      <svg className="h-8 md:h-10 w-auto" viewBox="0 0 155 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(2, 6)">
+          <polygon points="13,1 19,12 7,12" fill="#D3122A" />
+          <polygon points="7,13 13,24 1,24" fill="#D3122A" />
+          <polygon points="19,13 25,24 13,24" fill="#D3122A" />
+        </g>
+        <text x="34" y="25" fontFamily="system-ui, sans-serif" fontWeight="900" fontSize="15" fill="#1E293B" letterSpacing="0.08em">SHIMADZU</text>
       </svg>
-    ),
+    )
   },
   {
     name: "Sysmex Corporation",
-    origin: "Japan",
-    category: "Hematology & Coagulation Materials",
-    highlight: "Automated Diagnostics",
-    tag: "Clinical Materials",
-    icon: (
-      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <path d="m4.93 4.93 4.24 4.24M14.83 14.83l4.24 4.24M14.83 9.17l4.24-4.24M4.93 19.07l4.24-4.24" />
+    logo: (
+      <svg className="h-8 md:h-10 w-auto" viewBox="0 0 145 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(2, 7)">
+          <circle cx="10" cy="13" r="8" stroke="#004696" strokeWidth="3" fill="none" />
+          <circle cx="19" cy="13" r="8" stroke="#0096D6" strokeWidth="3" fill="none" />
+        </g>
+        <text x="36" y="26" fontFamily="system-ui, sans-serif" fontWeight="900" fontSize="18" fill="#004696" letterSpacing="-0.01em">Sysmex</text>
       </svg>
-    ),
+    )
   },
   {
     name: "Abbott Laboratories",
-    origin: "United States",
-    category: "Point-of-Care & Rapid Immunoassays",
-    highlight: "CLIA Certified",
-    tag: "Diagnostic Materials",
-    icon: (
-      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+    logo: (
+      <svg className="h-8 md:h-10 w-auto" viewBox="0 0 135 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(2, 6)">
+          <circle cx="14" cy="14" r="13" stroke="#007DC3" strokeWidth="2.5" fill="none" />
+          <path d="M14 6c4 0 7 3 7 7v8M21 16c-1.5-2.5-4-3.5-7-3.5-4 0-6.5 2.5-6.5 5.5s2.5 5.5 6.5 5.5c3 0 5.5-1 7-3.5" stroke="#007DC3" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+        </g>
+        <text x="38" y="26" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="18" fill="#1E293B" letterSpacing="-0.02em">Abbott</text>
       </svg>
-    ),
+    )
   },
   {
     name: "Becton Dickinson (BD)",
-    origin: "United States",
-    category: "Vacutainers & Bioscience Consumables",
-    highlight: "Sterile Medical Consumables",
-    tag: "Medical Materials",
-    icon: (
-      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m19 11-4-4-8.5 8.5a2.12 2.12 0 1 0 3 3L18 10" />
-        <path d="m5 19-2 2" />
-        <path d="m14 6 2-2 4 4-2 2" />
+    logo: (
+      <svg className="h-8 md:h-10 w-auto" viewBox="0 0 115 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(2, 5)">
+          <path d="M4 4h12c4.5 0 8 3 8 7s-3.5 7-8 7H4V4z" fill="#005696" />
+          <circle cx="12" cy="18" r="8" fill="#F47920" />
+          <path d="M12 10v16" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" />
+        </g>
+        <text x="34" y="26" fontFamily="system-ui, sans-serif" fontWeight="900" fontSize="22" fill="#005696" letterSpacing="0.04em">BD</text>
       </svg>
-    ),
+    )
   },
   {
-    name: "Eppendorf AG",
-    origin: "Germany",
-    category: "Liquid Handling & Centrifugation",
-    highlight: "High Precision Pipetting",
-    tag: "Laboratory Consumables",
-    icon: (
-      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+    name: "Eppendorf",
+    logo: (
+      <svg className="h-8 md:h-10 w-auto" viewBox="0 0 155 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(2, 6)">
+          <path d="M12 2c3 5 8 9 8 15a8 8 0 1 1-16 0c0-6 5-10 8-15z" fill="#004F9F" />
+          <circle cx="12" cy="18" r="2.5" fill="#FFFFFF" />
+        </g>
+        <text x="30" y="25" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="17" fill="#004F9F" letterSpacing="-0.02em">eppendorf</text>
       </svg>
-    ),
+    )
   },
   {
     name: "Sartorius Group",
-    origin: "Germany",
-    category: "Analytical Balances & Bioprocess",
-    highlight: "Ultra-Micro Balance",
-    tag: "Analytical Materials",
-    icon: (
-      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="12" y1="3" x2="12" y2="21" />
-        <polyline points="4 8 12 3 20 8" />
-        <path d="M4 14a4 4 0 0 0 8 0" />
-        <path d="M12 14a4 4 0 0 0 8 0" />
+    logo: (
+      <svg className="h-8 md:h-10 w-auto" viewBox="0 0 155 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(2, 6)">
+          <rect x="2" y="4" width="22" height="4" fill="#FFDA00" />
+          <rect x="11" y="8" width="4" height="16" fill="#1E293B" />
+          <circle cx="6" cy="16" r="4" fill="#1E293B" />
+          <circle cx="20" cy="16" r="4" fill="#1E293B" />
+        </g>
+        <text x="32" y="25" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="16" fill="#1E293B" letterSpacing="-0.01em">sartorius</text>
       </svg>
-    ),
-  },
+    )
+  }
 ];
-
-function ManufacturerCard({ item, track }) {
-  return (
-    <div className="group relative w-[310px] md:w-[340px] shrink-0 mx-3 p-5 rounded-2xl bg-white border border-gray-100 hover:border-gray-900/40 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_28px_-6px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1 select-none">
-      {/* Card Header */}
-      <div className="flex items-start justify-between gap-3 mb-3.5">
-        <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-xl bg-gray-950 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 group-hover:bg-blue-600 transition-all duration-300">
-            {item.icon}
-          </div>
-          <div>
-            <h4 className="font-extrabold text-gray-900 text-sm tracking-tight group-hover:text-blue-600 transition-colors leading-snug">
-              {item.name}
-            </h4>
-            <span className="text-[11px] text-gray-400 font-medium flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
-              {item.origin}
-            </span>
-          </div>
-        </div>
-
-        <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-gray-50 text-gray-600 border border-gray-100 group-hover:border-blue-200 group-hover:text-blue-700 transition-colors shrink-0">
-          {item.tag}
-        </span>
-      </div>
-
-      {/* Specialty & Description */}
-      <p className="text-xs text-gray-600 font-medium mb-3 line-clamp-1 leading-relaxed">
-        {item.category}
-      </p>
-
-      {/* Footer Tag */}
-      <div className="flex items-center justify-between pt-3 border-t border-gray-100/80 text-[11px]">
-        <span className="text-gray-400 font-medium flex items-center gap-1.5">
-          <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
-          {item.highlight}
-        </span>
-        <span className="text-[10px] font-bold text-gray-900 uppercase tracking-wider group-hover:translate-x-0.5 transition-transform flex items-center gap-1">
-          Genuine OEM
-        </span>
-      </div>
-
-      {/* Subtle top glow line on hover */}
-      <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
-    </div>
-  );
-}
 
 export default function ManufacturerMarquee() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white via-slate-50/50 to-white overflow-hidden border-b border-gray-100">
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl mb-12">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-900 text-white text-[11px] font-bold uppercase tracking-[0.2em] mb-4 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-              Verified OEM & Materials Network
-            </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 tracking-tight leading-tight">
-              Direct Partnerships with World-Class Medical & Laboratory Manufacturers
-            </h2>
-            <p className="text-sm md:text-base text-gray-500 mt-3 font-normal leading-relaxed">
-              We source precision diagnostic machinery, clinical equipment, and certified chemical reagents directly from internationally accredited manufacturers with factory warranty and Nigerian technical support.
-            </p>
-          </div>
-
-          {/* Quick trust metrics */}
-          <div className="hidden lg:flex items-center gap-6 text-left shrink-0 bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
-            <div className="border-r border-gray-100 pr-5">
-              <span className="text-xl font-black text-gray-900 block">50+</span>
-              <span className="text-[11px] text-gray-400 uppercase tracking-wider font-bold">Global Brands</span>
-            </div>
-            <div className="border-r border-gray-100 pr-5">
-              <span className="text-xl font-black text-gray-900 block">100%</span>
-              <span className="text-[11px] text-gray-400 uppercase tracking-wider font-bold">OEM Guaranteed</span>
-            </div>
-            <div>
-              <span className="text-xl font-black text-blue-600 block">ISO 9001</span>
-              <span className="text-[11px] text-gray-400 uppercase tracking-wider font-bold">Procurement</span>
-            </div>
-          </div>
-        </div>
+    <section className="py-12 md:py-16 bg-white overflow-hidden border-b border-gray-100">
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl mb-8 text-center">
+        <p className="text-xs uppercase tracking-[0.25em] text-gray-400 font-bold mb-2">
+          Direct OEM Partnerships
+        </p>
+        <h2 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight">
+          World-Class Medical & Laboratory Manufacturers
+        </h2>
       </div>
 
-      {/* Parallel Sliding Tracks Container with Smooth Vignette Mask */}
-      <div className="relative w-full mask-gradient-edges pause-hover space-y-5">
+      {/* Parallel Sliding Tracks of Transparent Logos */}
+      <div className="relative w-full mask-gradient-edges pause-hover space-y-6">
         
-        {/* Track 1: Medical Machines & Diagnostics (Sliding Left) */}
-        <div className="overflow-hidden py-1">
-          <div className="animate-marquee-left">
-            {/* Duplicate track array twice for perfectly seamless infinite looping */}
-            {[...trackOneEquipment, ...trackOneEquipment].map((item, idx) => (
-              <ManufacturerCard key={`t1-${idx}`} item={item} track="equipment" />
+        {/* Track 1 (Sliding Left) */}
+        <div className="overflow-hidden py-2">
+          <div className="animate-marquee-left items-center">
+            {[...trackOneLogos, ...trackOneLogos].map((item, idx) => (
+              <div
+                key={`t1-${idx}`}
+                className="flex items-center justify-center shrink-0 mx-8 md:mx-12 select-none opacity-65 hover:opacity-100 transition-all duration-300 transform hover:scale-105"
+                title={item.name}
+              >
+                {item.logo}
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Track 2: Materials, Reagents & Consumables (Sliding Right - Parallel Counterflow) */}
-        <div className="overflow-hidden py-1">
-          <div className="animate-marquee-right">
-            {/* Duplicate track array twice for perfectly seamless infinite looping */}
-            {[...trackTwoMaterials, ...trackTwoMaterials].map((item, idx) => (
-              <ManufacturerCard key={`t2-${idx}`} item={item} track="materials" />
+        {/* Track 2 (Sliding Right) */}
+        <div className="overflow-hidden py-2">
+          <div className="animate-marquee-right items-center">
+            {[...trackTwoLogos, ...trackTwoLogos].map((item, idx) => (
+              <div
+                key={`t2-${idx}`}
+                className="flex items-center justify-center shrink-0 mx-8 md:mx-12 select-none opacity-65 hover:opacity-100 transition-all duration-300 transform hover:scale-105"
+                title={item.name}
+              >
+                {item.logo}
+              </div>
             ))}
           </div>
         </div>
 
-      </div>
-
-      {/* Bottom Trust Indicators Ribbon */}
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl mt-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-gray-100/80 text-xs">
-          <div className="flex items-center gap-2.5 text-gray-600">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-            <span className="font-semibold">Direct Factory Calibration</span>
-          </div>
-          <div className="flex items-center gap-2.5 text-gray-600">
-            <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0" />
-            <span className="font-semibold">Full Manufacturer Warranties</span>
-          </div>
-          <div className="flex items-center gap-2.5 text-gray-600">
-            <Award className="w-4 h-4 text-amber-600 shrink-0" />
-            <span className="font-semibold">ISO & CE Certified Supplies</span>
-          </div>
-          <div className="flex items-center gap-2.5 text-gray-600">
-            <Activity className="w-4 h-4 text-purple-600 shrink-0" />
-            <span className="font-semibold">In-Country Technical Spares</span>
-          </div>
-        </div>
       </div>
     </section>
   );
