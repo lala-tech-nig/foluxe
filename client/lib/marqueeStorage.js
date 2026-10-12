@@ -13,7 +13,7 @@ export const DEFAULT_MARQUEE_SETTINGS = {
     {
       id: '1',
       badge: 'EXCLUSIVE PARTNERSHIP',
-      text: 'Foluxe Global signs Exclusive Country Partnership Agreement with Charge Life Science LLP (Biomalll AI) — 1,000+ verified global suppliers worldwide.',
+      text: 'Foluxe Global signs Exclusive Country Partnership Agreement with  (Biomall AI) — 1,000+ verified global suppliers worldwide.',
       link: '/partners',
       isExternal: false
     },
@@ -26,9 +26,9 @@ export const DEFAULT_MARQUEE_SETTINGS = {
     },
     {
       id: '3',
-      badge: 'SEARCH BiomallL.AI',
-      text: 'Search lab equipment, chemicals, reagents and consumables directly from our portal powered by Biomalll.ai worldwide catalog.',
-      link: 'https://Biomalll.ai',
+      badge: 'SEARCH BiomalL.AI',
+      text: 'Search lab equipment, chemicals, reagents and consumables directly from our portal powered by Biomall.ai worldwide catalog.',
+      link: 'https://Biomall.ai',
       isExternal: true
     }
   ]

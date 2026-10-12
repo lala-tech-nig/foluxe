@@ -188,7 +188,7 @@ export default function AdminDashboard() {
                             <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Active</span>
                         </div>
                         <p className="text-xs text-blue-200/90 mt-1">
-                            Broadcasting partnership updates, Biomalll AI access, and platform opportunities to all website visitors.
+                            Broadcasting partnership updates, Biomall AI access, and platform opportunities to all website visitors.
                         </p>
                     </div>
                 </div>
@@ -251,12 +251,12 @@ export default function AdminDashboard() {
 
                                 <div className="flex items-center gap-3 self-end sm:self-center">
                                     <span className={`text-[10px] uppercase font-extrabold px-3 py-1 rounded-full ${q.status === 'pending'
-                                            ? 'bg-amber-100 text-amber-800'
-                                            : q.status === 'in-review'
-                                                ? 'bg-blue-100 text-blue-800'
-                                                : q.status === 'quoted'
-                                                    ? 'bg-emerald-100 text-emerald-800'
-                                                    : 'bg-gray-100 text-gray-700'
+                                        ? 'bg-amber-100 text-amber-800'
+                                        : q.status === 'in-review'
+                                            ? 'bg-blue-100 text-blue-800'
+                                            : q.status === 'quoted'
+                                                ? 'bg-emerald-100 text-emerald-800'
+                                                : 'bg-gray-100 text-gray-700'
                                         }`}>
                                         {q.status}
                                     </span>

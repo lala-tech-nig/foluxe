@@ -4,9 +4,9 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 const STORAGE_KEY = 'foluxe_partner_settings';
 
 export const DEFAULT_PARTNER = {
-  name: 'Charge Life Science LLP',
-  platformName: 'Biomalll AI',
-  website: 'https://Biomalll.ai',
+  name: '',
+  platformName: 'Biomall AI',
+  website: 'https://Biomall.ai',
   location: 'India',
   agreement: 'Exclusive Country Partnership Agreement',
   region: 'Nigeria & West Africa',

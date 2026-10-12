@@ -79,7 +79,7 @@ export default function AdminPartnersPage() {
   };
 
   const handleReset = () => {
-    if (confirm('Reset partner information and website URL to default (Charge Life Science LLP / Biomalll AI)?')) {
+    if (confirm('Reset partner information and website URL to default ( / Biomall AI)?')) {
       setPartner(DEFAULT_PARTNER);
       setThumbError(false);
     }
@@ -170,7 +170,7 @@ export default function AdminPartnersPage() {
                   <span className="w-2 h-2 rounded-full bg-green-500/80" />
                 </div>
                 <div className="flex-1 max-w-xs mx-auto bg-slate-950 rounded px-2.5 py-0.5 text-[10px] font-mono text-slate-400 text-center truncate">
-                  {partner.website || 'https://Biomalll.ai'}
+                  {partner.website || 'https://Biomall.ai'}
                 </div>
               </div>
 
@@ -200,7 +200,7 @@ export default function AdminPartnersPage() {
               When you enter or change the website URL below, Foluxe automatically derives the thumbnail preview from the live target website in real-time.
             </p>
             <a
-              href={partner.website || 'https://Biomalll.ai'}
+              href={partner.website || 'https://Biomall.ai'}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0056b3] hover:underline pt-2"
@@ -232,11 +232,11 @@ export default function AdminPartnersPage() {
               required
               value={partner.website}
               onChange={(e) => handleChange('website', e.target.value)}
-              placeholder="https://Biomalll.ai"
+              placeholder="https://Biomall.ai"
               className="w-full text-sm font-mono font-bold px-4 py-3 bg-white border border-blue-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#0056b3] text-gray-900 shadow-sm"
             />
             <p className="text-[11px] text-gray-500">
-              Enter the full website URL (e.g. <code>https://Biomalll.ai</code>). The thumbnail image is automatically rendered from this address.
+              Enter the full website URL (e.g. <code>https://Biomall.ai</code>). The thumbnail image is automatically rendered from this address.
             </p>
           </div>
 
@@ -250,7 +250,7 @@ export default function AdminPartnersPage() {
                 required
                 value={partner.name}
                 onChange={(e) => handleChange('name', e.target.value)}
-                placeholder="Charge Life Science LLP"
+                placeholder=""
                 className="w-full text-xs font-bold px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
               />
             </div>
@@ -262,7 +262,7 @@ export default function AdminPartnersPage() {
                 type="text"
                 value={partner.platformName}
                 onChange={(e) => handleChange('platformName', e.target.value)}
-                placeholder="Biomalll AI"
+                placeholder="Biomall AI"
                 className="w-full text-xs font-bold px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
               />
             </div>

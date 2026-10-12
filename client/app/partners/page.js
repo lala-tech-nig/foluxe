@@ -57,7 +57,7 @@ export default function PartnersPage() {
     };
   }, []);
 
-  const websiteUrl = partner.website || 'https://Biomalll.ai';
+  const websiteUrl = partner.website || 'https://Biomall.ai';
   // Dynamic thumbnail derived directly from the URL inputted by the admin (no image upload or screenshot upload)
   const dynamicThumbnailSrc = getWebsiteThumbnailUrl(websiteUrl, thumbError ? 'thum' : 'wp');
 

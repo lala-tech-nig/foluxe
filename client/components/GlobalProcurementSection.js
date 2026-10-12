@@ -23,10 +23,10 @@ export default function GlobalProcurementSection() {
     e.preventDefault();
     const query = searchQuery.trim();
     if (query) {
-      // Direct visitor to Biomalll.ai search
-      window.open(`https://Biomalll.ai/?search=${encodeURIComponent(query)}`, '_blank', 'noopener,noreferrer');
+      // Direct visitor to Biomall.ai search
+      window.open(`https://Biomall.ai/?search=${encodeURIComponent(query)}`, '_blank', 'noopener,noreferrer');
     } else {
-      window.open('https://Biomalll.ai', '_blank', 'noopener,noreferrer');
+      window.open('https://Biomall.ai', '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -64,10 +64,10 @@ export default function GlobalProcurementSection() {
           </p>
         </div>
 
-        {/* Grid: Biomall AI Partnership Showcase & Partner Listing Invitation */}
+        {/* Grid: Biomal AI Partnership Showcase & Partner Listing Invitation */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
-          {/* Main Feature: Charge Life Science LLP (Biomall AI) Exclusive Country Partnership */}
+          {/* Main Feature:  (Biomal AI) Exclusive Country Partnership */}
           <div className="lg:col-span-7 bg-white rounded-3xl border border-gray-200 shadow-xl shadow-blue-900/5 p-8 md:p-10 flex flex-col justify-between relative overflow-hidden group">
 
             {/* Top Accent bar */}
@@ -87,11 +87,11 @@ export default function GlobalProcurementSection() {
 
               {/* Partner Title */}
               <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight mb-3">
-                Charge Life Science LLP <span className="text-[#0056b3]">(Biomalll AI)</span>
+                <span className="text-[#0056b3]">(Biomall AI)</span>
               </h3>
 
               <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6 font-normal">
-                Foluxe Global has signed an <strong>Exclusive Country Partnership Agreement</strong> with Charge Life Science LLP (Biomalll AI), an Indian global leader providing lab equipment, reagents, and consumables sourced directly from over <strong>1,000+ verified suppliers worldwide</strong>.
+                Foluxe Global has signed an <strong>Exclusive Country Partnership Agreement</strong> with  (Biomall AI), an Indian global leader providing lab equipment, reagents, and consumables sourced directly from over <strong>1,000+ verified suppliers worldwide</strong>.
               </p>
 
               {/* Stats Highlights */}
@@ -110,14 +110,14 @@ export default function GlobalProcurementSection() {
                 </div>
               </div>
 
-              {/* Direct Search From Our Site into Biomalll.ai */}
+              {/* Direct Search From Our Site into Biomall.ai */}
               <div className="bg-gradient-to-br from-blue-50/80 to-indigo-50/50 p-6 rounded-2xl border border-blue-100/80 mb-6">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0056b3] mb-2">
                   <Search size={14} />
                   <span>Search Directly from Our Website</span>
                 </div>
                 <p className="text-xs text-gray-600 mb-4">
-                  Query international laboratory equipment, chemicals, reagents, and consumables live across the Biomalll AI global catalog:
+                  Query international laboratory equipment, chemicals, reagents, and consumables live across the Biomall AI global catalog:
                 </p>
 
                 <form onSubmit={handleSearchSubmit} className="flex flex-col sm:flex-row gap-2">
@@ -134,7 +134,7 @@ export default function GlobalProcurementSection() {
                     type="submit"
                     className="px-6 py-3.5 bg-[#0056b3] hover:bg-blue-700 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 shrink-0"
                   >
-                    <Search size={14} /> Search Biomalll.ai
+                    <Search size={14} /> Search Biomall.ai
                   </button>
                 </form>
 
@@ -160,12 +160,12 @@ export default function GlobalProcurementSection() {
               <div className="flex items-center gap-2 text-xs text-gray-500">
                 <span className="font-semibold text-gray-900">Official Portal:</span>
                 <a
-                  href="https://Biomalll.ai"
+                  href="https://Biomall.ai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#0056b3] font-bold hover:underline inline-flex items-center gap-1"
                 >
-                  https://Biomalll.ai <ExternalLink size={12} />
+                  https://Biomall.ai <ExternalLink size={12} />
                 </a>
               </div>
 

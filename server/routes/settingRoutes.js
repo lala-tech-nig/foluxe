@@ -13,7 +13,7 @@ const DEFAULT_MARQUEE = {
         {
             id: '1',
             badge: 'EXCLUSIVE PARTNERSHIP',
-            text: 'Foluxe Global signs Exclusive Country Partnership with Charge Life Science LLP (Biomalll AI) — direct access to 1,000+ verified global medical & lab suppliers worldwide.',
+            text: 'Foluxe Global signs Exclusive Country Partnership with  (Biomall AI) — direct access to 1,000+ verified global medical & lab suppliers worldwide.',
             link: '/partners',
             isExternal: false
         },
@@ -27,17 +27,17 @@ const DEFAULT_MARQUEE = {
         {
             id: '3',
             badge: 'GLOBAL PORTAL',
-            text: 'Direct global search is now available! Query international laboratory equipment, reagents, and chemicals directly at Biomalll.ai.',
-            link: 'https://Biomalll.ai',
+            text: 'Direct global search is now available! Query international laboratory equipment, reagents, and chemicals directly at Biomall.ai.',
+            link: 'https://Biomall.ai',
             isExternal: true
         }
     ]
 };
 
 const DEFAULT_PARTNER = {
-    name: 'Charge Life Science LLP',
-    platformName: 'Biomalll AI',
-    website: 'https://Biomalll.ai',
+    name: '',
+    platformName: 'Biomall AI',
+    website: 'https://Biomall.ai',
     location: 'India',
     agreement: 'Exclusive Country Partnership Agreement',
     region: 'Nigeria & West Africa',
