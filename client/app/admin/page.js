@@ -13,7 +13,8 @@ import {
   CheckCircle2, 
   Building2, 
   ExternalLink,
-  MessageSquare
+  MessageSquare,
+  Megaphone
 } from 'lucide-react';
 import Link from 'next/link';
 import { fetchQuotes, getQuoteStats } from '../../lib/quotesStorage';
@@ -93,6 +94,12 @@ export default function AdminDashboard() {
 
                 <div className="flex items-center gap-3">
                     <Link
+                        href="/admin/marquee"
+                        className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center gap-2 shadow-sm"
+                    >
+                        <Megaphone size={15} /> Top Marquee
+                    </Link>
+                    <Link
                         href="/admin/quotes"
                         className="px-5 py-2.5 bg-gray-900 hover:bg-black text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center gap-2 shadow-sm"
                     >
@@ -167,6 +174,31 @@ export default function AdminDashboard() {
                     </div>
                 </div>
 
+            </div>
+
+            {/* Top Marquee Live Status Card */}
+            <div className="bg-gradient-to-r from-blue-900 via-blue-950 to-slate-900 rounded-3xl p-6 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm border border-blue-800/40">
+                <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
+                        <Megaphone className="w-6 h-6 text-yellow-300 animate-pulse" />
+                    </div>
+                    <div>
+                        <div className="flex items-center gap-2">
+                            <h3 className="font-extrabold text-sm tracking-wide">Top Announcement Marquee Ticker</h3>
+                            <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Active</span>
+                        </div>
+                        <p className="text-xs text-blue-200/90 mt-1">
+                            Broadcasting partnership updates, Biomal AI access, and platform opportunities to all website visitors.
+                        </p>
+                    </div>
+                </div>
+
+                <Link
+                    href="/admin/marquee"
+                    className="px-5 py-2.5 bg-white text-gray-900 hover:bg-blue-50 text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center gap-2 shrink-0 self-start sm:self-auto shadow-md"
+                >
+                    Customize Marquee <ArrowRight size={14} />
+                </Link>
             </div>
 
             {/* Recent Quotes Section */}

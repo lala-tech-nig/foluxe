@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Microscope, ShieldCheck, Truck, Clock } from 'lucide-react';
 import ManufacturerMarquee from '../components/ManufacturerMarquee';
+import GlobalProcurementSection from '../components/GlobalProcurementSection';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
@@ -105,6 +106,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Global Procurement, Partnership & Biomal.ai Direct Search Portal */}
+      <GlobalProcurementSection />
 
       {/* Parallel Sliding Logos - Medical Machine & Materials Manufacturers */}
       <ManufacturerMarquee />

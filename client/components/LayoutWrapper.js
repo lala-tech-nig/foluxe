@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import TopMarquee from "@/components/TopMarquee";
 
 export default function LayoutWrapper({ children }) {
   const pathname = usePathname();
@@ -12,6 +13,7 @@ export default function LayoutWrapper({ children }) {
 
   return (
     <>
+      {!isAdminPage && <TopMarquee />}
       {!isAdminPage && <Navbar />}
       <main>{children}</main>
       {!isAdminPage && <Footer />}

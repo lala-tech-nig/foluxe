@@ -24,6 +24,7 @@ mongoose.connect(MONGODB_URI)
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/quotes', require('./routes/quoteRoutes'));
+app.use('/api/settings', require('./routes/settingRoutes'));
 
 // Basic health check route
 app.get('/', (req, res) => res.send('Foluxe API is running'));

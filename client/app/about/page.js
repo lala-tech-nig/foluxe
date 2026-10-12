@@ -1,6 +1,7 @@
 'use client';
 
-import { ShieldCheck, Target, Eye, Microscope, Users, Award } from 'lucide-react';
+import Link from 'next/link';
+import { ShieldCheck, Target, Eye, Microscope, Users, Award, ArrowRight } from 'lucide-react';
 
 export default function AboutPage() {
     return (
@@ -46,6 +47,29 @@ export default function AboutPage() {
                             <div className="absolute bottom-0 left-0 w-full h-1.5 bg-gray-900 transform scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100"></div>
                         </div>
                     </div>
+
+                    {/* Strategic Expansion & Biomal AI Partnership */}
+                    <div className="mt-12 p-10 lg:p-12 bg-gradient-to-r from-blue-900 via-[#0056b3] to-slate-900 text-white rounded-[2rem] shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
+                        <div className="space-y-3">
+                            <span className="text-yellow-300 font-extrabold uppercase text-xs tracking-widest block">
+                                Strategic Industry Expansion & Global Alliances
+                            </span>
+                            <h3 className="text-2xl lg:text-3xl font-extrabold tracking-tight">
+                                Exclusive Country Partnership with Charge Life Science LLP (Biomal AI)
+                            </h3>
+                            <p className="text-blue-100 text-sm lg:text-base max-w-2xl font-light leading-relaxed">
+                                Offering our platform to medical & laboratory players to promote and market their products and services across Nigeria & West Africa, with direct search from over 1,000 verified suppliers worldwide.
+                            </p>
+                        </div>
+
+                        <Link
+                            href="/partners"
+                            className="px-8 py-4 bg-white text-gray-900 hover:bg-gray-100 text-xs font-black uppercase tracking-wider rounded-xl transition-all shadow-md shrink-0 flex items-center gap-2"
+                        >
+                            Explore Partners & Search <ArrowRight size={15} />
+                        </Link>
+                    </div>
+
                 </div>
             </section>
 
