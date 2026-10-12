@@ -1,19 +1,19 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { 
-  ExternalLink, 
-  ShieldCheck, 
-  Globe, 
-  Sparkles, 
-  CheckCircle2, 
+import {
+  ExternalLink,
+  ShieldCheck,
+  Globe,
+  Sparkles,
+  CheckCircle2,
   ArrowUpRight,
   Clock
 } from 'lucide-react';
-import { 
-  fetchPartnerSettings, 
-  getWebsiteThumbnailUrl, 
-  DEFAULT_PARTNER 
+import {
+  fetchPartnerSettings,
+  getWebsiteThumbnailUrl,
+  DEFAULT_PARTNER
 } from '../../lib/partnerStorage';
 
 export default function PartnersPage() {
@@ -57,17 +57,17 @@ export default function PartnersPage() {
     };
   }, []);
 
-  const websiteUrl = partner.website || 'https://biomall.ai';
+  const websiteUrl = partner.website || 'https://Biomalll.ai';
   // Dynamic thumbnail derived directly from the URL inputted by the admin (no image upload or screenshot upload)
   const dynamicThumbnailSrc = getWebsiteThumbnailUrl(websiteUrl, thumbError ? 'thum' : 'wp');
 
   return (
     <div className="bg-white min-h-[85vh] flex flex-col justify-between">
-      
+
       {/* Header Note Section */}
       <section className="pt-20 pb-12 bg-white">
         <div className="container mx-auto px-6 md:px-12 max-w-5xl text-center">
-          
+
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[#0056b3] text-[11px] font-black uppercase tracking-wider mb-5">
             <Sparkles size={13} className="text-[#0056b3]" />
             <span>Foluxe Strategic Partnerships</span>
@@ -90,7 +90,7 @@ export default function PartnersPage() {
       {/* Main Partner Showcase Card */}
       <section className="pb-24">
         <div className="container mx-auto px-6 md:px-12 max-w-5xl">
-          
+
           {/* Clickable Card -> Takes visitor to partner website */}
           <a
             href={websiteUrl}
@@ -100,13 +100,13 @@ export default function PartnersPage() {
             className="group block bg-white rounded-[2.5rem] border border-gray-200 hover:border-[#0056b3] shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-              
+
               {/* Left: Dynamic Website Thumbnail in Browser Mockup */}
               <div className="lg:col-span-7 bg-slate-900 p-6 md:p-8 flex flex-col justify-center relative overflow-hidden group/thumb">
-                
+
                 {/* Browser Frame */}
                 <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-slate-950 flex flex-col">
-                  
+
                   {/* Browser Address Bar */}
                   <div className="bg-slate-900 px-4 py-2.5 flex items-center gap-3 border-b border-white/10">
                     <div className="flex items-center gap-1.5 shrink-0">
@@ -156,7 +156,7 @@ export default function PartnersPage() {
               {/* Right: Partner Details */}
               <div className="lg:col-span-5 p-8 md:p-10 flex flex-col justify-between bg-white">
                 <div>
-                  
+
                   {/* Status Badge */}
                   <div className="flex items-center gap-2 mb-4">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-[#0056b3] text-[10px] font-black uppercase tracking-wider border border-blue-100">

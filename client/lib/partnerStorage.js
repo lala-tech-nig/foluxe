@@ -5,8 +5,8 @@ const STORAGE_KEY = 'foluxe_partner_settings';
 
 export const DEFAULT_PARTNER = {
   name: 'Charge Life Science LLP',
-  platformName: 'Biomall AI',
-  website: 'https://biomall.ai',
+  platformName: 'Biomalll AI',
+  website: 'https://Biomalll.ai',
   location: 'India',
   agreement: 'Exclusive Country Partnership Agreement',
   region: 'Nigeria & West Africa',
@@ -22,7 +22,7 @@ export const DEFAULT_PARTNER = {
  */
 export function getWebsiteThumbnailUrl(rawUrl, provider = 'wp') {
   if (!rawUrl || typeof rawUrl !== 'string') return '';
-  
+
   let clean = rawUrl.trim();
   if (!clean.startsWith('http://') && !clean.startsWith('https://')) {
     clean = `https://${clean}`;
@@ -69,7 +69,7 @@ export async function fetchPartnerSettings() {
 
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_PARTNER));
-  } catch {}
+  } catch { }
 
   return DEFAULT_PARTNER;
 }

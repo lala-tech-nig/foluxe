@@ -1,24 +1,24 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { 
-  Building2, 
-  Globe, 
-  Save, 
-  RotateCcw, 
-  ExternalLink, 
-  CheckCircle2, 
-  AlertCircle, 
-  Eye, 
-  Sparkles, 
-  ShieldCheck, 
-  Link2 
+import {
+  Building2,
+  Globe,
+  Save,
+  RotateCcw,
+  ExternalLink,
+  CheckCircle2,
+  AlertCircle,
+  Eye,
+  Sparkles,
+  ShieldCheck,
+  Link2
 } from 'lucide-react';
-import { 
-  fetchPartnerSettings, 
-  savePartnerSettings, 
-  getWebsiteThumbnailUrl, 
-  DEFAULT_PARTNER 
+import {
+  fetchPartnerSettings,
+  savePartnerSettings,
+  getWebsiteThumbnailUrl,
+  DEFAULT_PARTNER
 } from '../../../lib/partnerStorage';
 
 export default function AdminPartnersPage() {
@@ -79,7 +79,7 @@ export default function AdminPartnersPage() {
   };
 
   const handleReset = () => {
-    if (confirm('Reset partner information and website URL to default (Charge Life Science LLP / Biomall AI)?')) {
+    if (confirm('Reset partner information and website URL to default (Charge Life Science LLP / Biomalll AI)?')) {
       setPartner(DEFAULT_PARTNER);
       setThumbError(false);
     }
@@ -97,7 +97,7 @@ export default function AdminPartnersPage() {
 
   return (
     <div className="max-w-5xl mx-auto space-y-10 pb-16">
-      
+
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
@@ -135,9 +135,8 @@ export default function AdminPartnersPage() {
 
       {/* Status Feedback */}
       {statusMessage && (
-        <div className={`p-4 rounded-2xl text-xs font-bold flex items-center gap-3 transition-all ${
-          statusMessage.type === 'success' ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' : 'bg-red-50 text-red-800 border border-red-200'
-        }`}>
+        <div className={`p-4 rounded-2xl text-xs font-bold flex items-center gap-3 transition-all ${statusMessage.type === 'success' ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' : 'bg-red-50 text-red-800 border border-red-200'
+          }`}>
           {statusMessage.type === 'success' ? <CheckCircle2 size={18} /> : <AlertCircle size={18} />}
           <span>{statusMessage.text}</span>
         </div>
@@ -158,11 +157,11 @@ export default function AdminPartnersPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-          
+
           {/* Thumbnail Preview Browser Frame */}
           <div className="lg:col-span-7 bg-slate-950 p-4 rounded-2xl border border-gray-200 shadow-md">
             <div className="rounded-xl overflow-hidden border border-white/10 bg-slate-900 flex flex-col">
-              
+
               {/* Browser Header Bar */}
               <div className="bg-slate-900 px-3 py-2 flex items-center gap-2 border-b border-white/10">
                 <div className="flex items-center gap-1">
@@ -171,7 +170,7 @@ export default function AdminPartnersPage() {
                   <span className="w-2 h-2 rounded-full bg-green-500/80" />
                 </div>
                 <div className="flex-1 max-w-xs mx-auto bg-slate-950 rounded px-2.5 py-0.5 text-[10px] font-mono text-slate-400 text-center truncate">
-                  {partner.website || 'https://biomall.ai'}
+                  {partner.website || 'https://Biomalll.ai'}
                 </div>
               </div>
 
@@ -201,7 +200,7 @@ export default function AdminPartnersPage() {
               When you enter or change the website URL below, Foluxe automatically derives the thumbnail preview from the live target website in real-time.
             </p>
             <a
-              href={partner.website || 'https://biomall.ai'}
+              href={partner.website || 'https://Biomalll.ai'}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0056b3] hover:underline pt-2"
@@ -221,7 +220,7 @@ export default function AdminPartnersPage() {
         </h3>
 
         <div className="space-y-6">
-          
+
           {/* Target Website URL (The key input) */}
           <div className="p-5 rounded-2xl bg-blue-50/50 border border-blue-200/80 space-y-2">
             <label className="text-xs font-black uppercase tracking-wider text-[#0056b3] flex items-center gap-1.5">
@@ -233,16 +232,16 @@ export default function AdminPartnersPage() {
               required
               value={partner.website}
               onChange={(e) => handleChange('website', e.target.value)}
-              placeholder="https://biomall.ai"
+              placeholder="https://Biomalll.ai"
               className="w-full text-sm font-mono font-bold px-4 py-3 bg-white border border-blue-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#0056b3] text-gray-900 shadow-sm"
             />
             <p className="text-[11px] text-gray-500">
-              Enter the full website URL (e.g. <code>https://biomall.ai</code>). The thumbnail image is automatically rendered from this address.
+              Enter the full website URL (e.g. <code>https://Biomalll.ai</code>). The thumbnail image is automatically rendered from this address.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            
+
             {/* Company Name */}
             <div className="space-y-1.5">
               <label className="text-xs font-bold uppercase tracking-wider text-gray-600">Company Name *</label>
@@ -263,7 +262,7 @@ export default function AdminPartnersPage() {
                 type="text"
                 value={partner.platformName}
                 onChange={(e) => handleChange('platformName', e.target.value)}
-                placeholder="Biomall AI"
+                placeholder="Biomalll AI"
                 className="w-full text-xs font-bold px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
               />
             </div>
@@ -271,7 +270,7 @@ export default function AdminPartnersPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            
+
             {/* Location / Country */}
             <div className="space-y-1.5">
               <label className="text-xs font-bold uppercase tracking-wider text-gray-600">Location / Country</label>
@@ -299,7 +298,7 @@ export default function AdminPartnersPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            
+
             {/* Supplier Network Count */}
             <div className="space-y-1.5">
               <label className="text-xs font-bold uppercase tracking-wider text-gray-600">Supplier Network Reach</label>

@@ -13,7 +13,7 @@ const DEFAULT_MARQUEE = {
         {
             id: '1',
             badge: 'EXCLUSIVE PARTNERSHIP',
-            text: 'Foluxe Global signs Exclusive Country Partnership with Charge Life Science LLP (Biomall AI) — direct access to 1,000+ verified global medical & lab suppliers worldwide.',
+            text: 'Foluxe Global signs Exclusive Country Partnership with Charge Life Science LLP (Biomalll AI) — direct access to 1,000+ verified global medical & lab suppliers worldwide.',
             link: '/partners',
             isExternal: false
         },
@@ -27,8 +27,8 @@ const DEFAULT_MARQUEE = {
         {
             id: '3',
             badge: 'GLOBAL PORTAL',
-            text: 'Direct global search is now available! Query international laboratory equipment, reagents, and chemicals directly at Biomall.ai.',
-            link: 'https://biomall.ai',
+            text: 'Direct global search is now available! Query international laboratory equipment, reagents, and chemicals directly at Biomalll.ai.',
+            link: 'https://Biomalll.ai',
             isExternal: true
         }
     ]
@@ -36,8 +36,8 @@ const DEFAULT_MARQUEE = {
 
 const DEFAULT_PARTNER = {
     name: 'Charge Life Science LLP',
-    platformName: 'Biomall AI',
-    website: 'https://biomall.ai',
+    platformName: 'Biomalll AI',
+    website: 'https://Biomalll.ai',
     location: 'India',
     agreement: 'Exclusive Country Partnership Agreement',
     region: 'Nigeria & West Africa',
@@ -113,17 +113,17 @@ router.get('/partner', async (req, res) => {
 // @access  Private (Admin)
 router.put('/partner', auth, async (req, res) => {
     try {
-        const { 
-            name, 
-            platformName, 
-            website, 
-            location, 
-            agreement, 
-            region, 
-            description, 
-            supplierCount, 
-            productScope, 
-            validationNote 
+        const {
+            name,
+            platformName,
+            website,
+            location,
+            agreement,
+            region,
+            description,
+            supplierCount,
+            productScope,
+            validationNote
         } = req.body;
 
         const value = {

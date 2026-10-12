@@ -1,20 +1,20 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { 
-  Package, 
-  Tag, 
-  AlertCircle, 
-  Plus, 
-  LayoutGrid, 
-  ClipboardList, 
-  Clock, 
-  ArrowRight, 
-  CheckCircle2, 
-  Building2, 
-  ExternalLink,
-  MessageSquare,
-  Megaphone
+import {
+    Package,
+    Tag,
+    AlertCircle,
+    Plus,
+    LayoutGrid,
+    ClipboardList,
+    Clock,
+    ArrowRight,
+    CheckCircle2,
+    Building2,
+    ExternalLink,
+    MessageSquare,
+    Megaphone
 } from 'lucide-react';
 import Link from 'next/link';
 import { fetchQuotes, getQuoteStats } from '../../lib/quotesStorage';
@@ -22,12 +22,12 @@ import { fetchQuotes, getQuoteStats } from '../../lib/quotesStorage';
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
 export default function AdminDashboard() {
-    const [stats, setStats] = useState({ 
-      products: 0, 
-      categories: 0, 
-      onRequested: 0,
-      totalQuotes: 0,
-      pendingQuotes: 0
+    const [stats, setStats] = useState({
+        products: 0,
+        categories: 0,
+        onRequested: 0,
+        totalQuotes: 0,
+        pendingQuotes: 0
     });
     const [recentQuotes, setRecentQuotes] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -36,19 +36,19 @@ export default function AdminDashboard() {
         const fetchDashboardData = async () => {
             try {
                 const token = localStorage.getItem('foluxe_admin_token');
-                
+
                 // Fetch products and meta
                 let products = [];
                 let meta = { categories: [] };
                 try {
-                  const [pRes, mRes] = await Promise.all([
-                      fetch(`${API_URL}/api/products`, { headers: { Authorization: `Bearer ${token}` } }),
-                      fetch(`${API_URL}/api/products/meta`)
-                  ]);
-                  if (pRes.ok) products = await pRes.json();
-                  if (mRes.ok) meta = await mRes.json();
+                    const [pRes, mRes] = await Promise.all([
+                        fetch(`${API_URL}/api/products`, { headers: { Authorization: `Bearer ${token}` } }),
+                        fetch(`${API_URL}/api/products/meta`)
+                    ]);
+                    if (pRes.ok) products = await pRes.json();
+                    if (mRes.ok) meta = await mRes.json();
                 } catch {
-                  // Handled
+                    // Handled
                 }
 
                 // Fetch quotes
@@ -116,9 +116,9 @@ export default function AdminDashboard() {
 
             {/* Metric Cards (4 Columns) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                
+
                 {/* Quote Requests */}
-                <Link 
+                <Link
                     href="/admin/quotes"
                     className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm flex items-center gap-5 group hover:border-blue-600 transition-all duration-300"
                 >
@@ -188,7 +188,7 @@ export default function AdminDashboard() {
                             <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Active</span>
                         </div>
                         <p className="text-xs text-blue-200/90 mt-1">
-                            Broadcasting partnership updates, Biomall AI access, and platform opportunities to all website visitors.
+                            Broadcasting partnership updates, Biomalll AI access, and platform opportunities to all website visitors.
                         </p>
                     </div>
                 </div>
@@ -250,15 +250,14 @@ export default function AdminDashboard() {
                                 </div>
 
                                 <div className="flex items-center gap-3 self-end sm:self-center">
-                                    <span className={`text-[10px] uppercase font-extrabold px-3 py-1 rounded-full ${
-                                        q.status === 'pending'
+                                    <span className={`text-[10px] uppercase font-extrabold px-3 py-1 rounded-full ${q.status === 'pending'
                                             ? 'bg-amber-100 text-amber-800'
                                             : q.status === 'in-review'
-                                            ? 'bg-blue-100 text-blue-800'
-                                            : q.status === 'quoted'
-                                            ? 'bg-emerald-100 text-emerald-800'
-                                            : 'bg-gray-100 text-gray-700'
-                                    }`}>
+                                                ? 'bg-blue-100 text-blue-800'
+                                                : q.status === 'quoted'
+                                                    ? 'bg-emerald-100 text-emerald-800'
+                                                    : 'bg-gray-100 text-gray-700'
+                                        }`}>
                                         {q.status}
                                     </span>
 

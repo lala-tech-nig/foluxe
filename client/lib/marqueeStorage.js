@@ -13,7 +13,7 @@ export const DEFAULT_MARQUEE_SETTINGS = {
     {
       id: '1',
       badge: 'EXCLUSIVE PARTNERSHIP',
-      text: 'Foluxe Global signs Exclusive Country Partnership Agreement with Charge Life Science LLP (Biomall AI) — 1,000+ verified global suppliers worldwide.',
+      text: 'Foluxe Global signs Exclusive Country Partnership Agreement with Charge Life Science LLP (Biomalll AI) — 1,000+ verified global suppliers worldwide.',
       link: '/partners',
       isExternal: false
     },
@@ -26,9 +26,9 @@ export const DEFAULT_MARQUEE_SETTINGS = {
     },
     {
       id: '3',
-      badge: 'SEARCH BIOMALL.AI',
-      text: 'Search lab equipment, chemicals, reagents and consumables directly from our portal powered by Biomall.ai worldwide catalog.',
-      link: 'https://biomall.ai',
+      badge: 'SEARCH BiomallL.AI',
+      text: 'Search lab equipment, chemicals, reagents and consumables directly from our portal powered by Biomalll.ai worldwide catalog.',
+      link: 'https://Biomalll.ai',
       isExternal: true
     }
   ]
@@ -68,7 +68,7 @@ export async function fetchTopMarquee() {
   // Initialize with defaults in localStorage
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_MARQUEE_SETTINGS));
-  } catch {}
+  } catch { }
 
   return DEFAULT_MARQUEE_SETTINGS;
 }

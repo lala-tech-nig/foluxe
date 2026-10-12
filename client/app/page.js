@@ -107,7 +107,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Global Procurement, Partnership & Biomal.ai Direct Search Portal */}
+      {/* Global Procurement, Partnership & Biomall.ai Direct Search Portal */}
       <GlobalProcurementSection />
 
       {/* Parallel Sliding Logos - Medical Machine & Materials Manufacturers */}
