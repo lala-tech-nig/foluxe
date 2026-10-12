@@ -23,10 +23,10 @@ export default function GlobalProcurementSection() {
     e.preventDefault();
     const query = searchQuery.trim();
     if (query) {
-      // Direct visitor to Biomal.ai search
-      window.open(`https://Biomal.ai/?search=${encodeURIComponent(query)}`, '_blank', 'noopener,noreferrer');
+      // Direct visitor to Biomall.ai search
+      window.open(`https://biomall.ai/?search=${encodeURIComponent(query)}`, '_blank', 'noopener,noreferrer');
     } else {
-      window.open('https://Biomal.ai', '_blank', 'noopener,noreferrer');
+      window.open('https://biomall.ai', '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -87,11 +87,11 @@ export default function GlobalProcurementSection() {
 
               {/* Partner Title */}
               <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight mb-3">
-                Charge Life Science LLP <span className="text-[#0056b3]">(Biomal AI)</span>
+                Charge Life Science LLP <span className="text-[#0056b3]">(Biomall AI)</span>
               </h3>
               
               <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6 font-normal">
-                Foluxe Global has signed an <strong>Exclusive Country Partnership Agreement</strong> with Charge Life Science LLP (Biomal AI), an Indian global leader providing lab equipment, reagents, and consumables sourced directly from over <strong>1,000+ verified suppliers worldwide</strong>.
+                Foluxe Global has signed an <strong>Exclusive Country Partnership Agreement</strong> with Charge Life Science LLP (Biomall AI), an Indian global leader providing lab equipment, reagents, and consumables sourced directly from over <strong>1,000+ verified suppliers worldwide</strong>.
               </p>
 
               {/* Stats Highlights */}
@@ -110,14 +110,14 @@ export default function GlobalProcurementSection() {
                 </div>
               </div>
 
-              {/* Direct Search From Our Site into Biomal.ai */}
+              {/* Direct Search From Our Site into Biomall.ai */}
               <div className="bg-gradient-to-br from-blue-50/80 to-indigo-50/50 p-6 rounded-2xl border border-blue-100/80 mb-6">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0056b3] mb-2">
                   <Search size={14} />
                   <span>Search Directly from Our Website</span>
                 </div>
                 <p className="text-xs text-gray-600 mb-4">
-                  Query international laboratory equipment, chemicals, reagents, and consumables live across the Biomal AI global catalog:
+                  Query international laboratory equipment, chemicals, reagents, and consumables live across the Biomall AI global catalog:
                 </p>
 
                 <form onSubmit={handleSearchSubmit} className="flex flex-col sm:flex-row gap-2">
@@ -134,7 +134,7 @@ export default function GlobalProcurementSection() {
                     type="submit"
                     className="px-6 py-3.5 bg-[#0056b3] hover:bg-blue-700 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 shrink-0"
                   >
-                    <Search size={14} /> Search Biomal.ai
+                    <Search size={14} /> Search Biomall.ai
                   </button>
                 </form>
 
@@ -160,12 +160,12 @@ export default function GlobalProcurementSection() {
               <div className="flex items-center gap-2 text-xs text-gray-500">
                 <span className="font-semibold text-gray-900">Official Portal:</span>
                 <a
-                  href="https://Biomal.ai"
+                  href="https://biomall.ai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#0056b3] font-bold hover:underline inline-flex items-center gap-1"
                 >
-                  https://Biomal.ai <ExternalLink size={12} />
+                  https://biomall.ai <ExternalLink size={12} />
                 </a>
               </div>
 

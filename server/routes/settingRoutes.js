@@ -13,7 +13,7 @@ const DEFAULT_MARQUEE = {
         {
             id: '1',
             badge: 'EXCLUSIVE PARTNERSHIP',
-            text: 'Foluxe Global signs Exclusive Country Partnership with Charge Life Science LLP (Biomal AI) — direct access to 1,000+ verified global medical & lab suppliers worldwide.',
+            text: 'Foluxe Global signs Exclusive Country Partnership with Charge Life Science LLP (Biomall AI) — direct access to 1,000+ verified global medical & lab suppliers worldwide.',
             link: '/partners',
             isExternal: false
         },
@@ -27,11 +27,24 @@ const DEFAULT_MARQUEE = {
         {
             id: '3',
             badge: 'GLOBAL PORTAL',
-            text: 'Direct global search is now available! Query international laboratory equipment, reagents, and chemicals directly at Biomal.ai.',
-            link: 'https://Biomal.ai',
+            text: 'Direct global search is now available! Query international laboratory equipment, reagents, and chemicals directly at Biomall.ai.',
+            link: 'https://biomall.ai',
             isExternal: true
         }
     ]
+};
+
+const DEFAULT_PARTNER = {
+    name: 'Charge Life Science LLP',
+    platformName: 'Biomall AI',
+    website: 'https://biomall.ai',
+    location: 'India',
+    agreement: 'Exclusive Country Partnership Agreement',
+    region: 'Nigeria & West Africa',
+    description: 'An Indian company dealing in lab equipment, reagents and consumables from over 1,000 verified suppliers worldwide. Search and source laboratory products directly from their international database.',
+    supplierCount: '1,000+',
+    productScope: 'Lab Equipment, Reagents & Consumables',
+    validationNote: 'NOTE: Others will be supplied as soon as an agreement with them are validated. Thank you.'
 };
 
 // @route   GET /api/settings/marquee
@@ -76,6 +89,66 @@ router.put('/marquee', auth, async (req, res) => {
     } catch (err) {
         console.error('Error saving marquee settings:', err.message);
         res.status(500).json({ msg: 'Server error saving marquee settings' });
+    }
+});
+
+// @route   GET /api/settings/partner
+// @desc    Get partner settings & website URL (Public)
+// @access  Public
+router.get('/partner', async (req, res) => {
+    try {
+        let setting = await Setting.findOne({ key: 'partner_settings' });
+        if (!setting) {
+            return res.json(DEFAULT_PARTNER);
+        }
+        res.json(setting.value);
+    } catch (err) {
+        console.error('Error fetching partner settings:', err.message);
+        res.status(500).json(DEFAULT_PARTNER);
+    }
+});
+
+// @route   PUT /api/settings/partner
+// @desc    Update partner settings including website URL
+// @access  Private (Admin)
+router.put('/partner', auth, async (req, res) => {
+    try {
+        const { 
+            name, 
+            platformName, 
+            website, 
+            location, 
+            agreement, 
+            region, 
+            description, 
+            supplierCount, 
+            productScope, 
+            validationNote 
+        } = req.body;
+
+        const value = {
+            name: name || DEFAULT_PARTNER.name,
+            platformName: platformName || DEFAULT_PARTNER.platformName,
+            website: (website || DEFAULT_PARTNER.website).trim(),
+            location: location || DEFAULT_PARTNER.location,
+            agreement: agreement || DEFAULT_PARTNER.agreement,
+            region: region || DEFAULT_PARTNER.region,
+            description: description || DEFAULT_PARTNER.description,
+            supplierCount: supplierCount || DEFAULT_PARTNER.supplierCount,
+            productScope: productScope || DEFAULT_PARTNER.productScope,
+            validationNote: validationNote || DEFAULT_PARTNER.validationNote
+        };
+
+        const setting = await Setting.findOneAndUpdate(
+            { key: 'partner_settings' },
+            { key: 'partner_settings', value, updatedAt: new Date() },
+            { new: true, upsert: true }
+        );
+
+        res.json(setting.value);
+    } catch (err) {
+        console.error('Error saving partner settings:', err.message);
+        res.status(500).json({ msg: 'Server error saving partner settings' });
     }
 });
 

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { LayoutDashboard, Package, PlusCircle, LogOut, ClipboardList, Megaphone } from 'lucide-react';
+import { LayoutDashboard, Package, PlusCircle, LogOut, ClipboardList, Megaphone, Building2 } from 'lucide-react';
 import { fetchQuotes, getQuoteStats } from '../../lib/quotesStorage';
 
 export default function AdminLayout({ children }) {
@@ -64,6 +64,7 @@ export default function AdminLayout({ children }) {
     const navItems = [
         { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
         { name: 'Top Marquee', href: '/admin/marquee', icon: Megaphone },
+        { name: 'Partners Portal', href: '/admin/partners', icon: Building2 },
         { name: 'Quote Requests', href: '/admin/quotes', icon: ClipboardList, badge: pendingCount },
         { name: 'Products', href: '/admin/products', icon: Package },
         { name: 'Add Product', href: '/admin/products/add', icon: PlusCircle },

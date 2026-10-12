@@ -188,7 +188,7 @@ export default function AdminDashboard() {
                             <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Active</span>
                         </div>
                         <p className="text-xs text-blue-200/90 mt-1">
-                            Broadcasting partnership updates, Biomal AI access, and platform opportunities to all website visitors.
+                            Broadcasting partnership updates, Biomall AI access, and platform opportunities to all website visitors.
                         </p>
                     </div>
                 </div>
